@@ -1,7 +1,12 @@
-import { User } from ".prisma/client";
 import { Request, Response } from "express";
 import { createUser } from "../services/user.service";
-import logger from "../utils/logger";
+
+export interface User {
+  id: string;
+  name?: string;
+  email: string;
+  password?: string;
+}
 
 export const createUserHandler = async (req: Request, res: Response) => {
   try {

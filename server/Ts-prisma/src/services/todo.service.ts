@@ -1,14 +1,13 @@
 import { PrismaClient } from "@prisma/client";
+import { Todo } from "../controller/todo";
 const prisma = new PrismaClient();
 
-interface Todo {
-  t_id?: number;
-  todo: string;
-  userId: number;
-}
-
-export const getTodos = async () => {
-  const todos = await prisma.todo.findMany();
+export const getTodos = async (userId: string) => {
+  const todos = await prisma.todo.findMany({
+    where: {
+      userId,
+    },
+  });
   return todos;
 };
 
@@ -41,7 +40,7 @@ export const deleteTodos = async ({ t_id }: Todo) => {
   return deleteTodo;
 };
 
-export const updateTodos = async ({ t_id, todo, userId }: Todo) => {
+export const updateTodos = async (t_id: string, { todo, userId }: Todo) => {
   try {
     const user = await prisma.user.findUnique({
       where: {

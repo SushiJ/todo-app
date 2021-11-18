@@ -6,14 +6,21 @@ import {
   updateTodos,
 } from "../services/todo.service";
 
-export const getTodoHandler = async (req: Request, res: Response) => {
+export interface Todo {
+  t_id?: string;
+  todo: string;
+  userId: string;
+}
+
+export async function getTodoHandler(req: Request, res: Response) {
   try {
-    const todos = await getTodos();
+    const { userId } = req.params;
+    const todos = await getTodos(userId);
     return res.json(todos);
   } catch (e) {
     res.send(404).json("No todos were found");
   }
-};
+}
 
 export const postTodoHandler = async (req: Request, res: Response) => {
   const todo = await postTodos(req.body);
@@ -31,7 +38,8 @@ export const deleteTodoHandler = async (req: Request, res: Response) => {
 
 export const updateTodoHandler = async (req: Request, res: Response) => {
   try {
-    const updatedTodo = await updateTodos(req.body);
+    const { t_id } = req.params;
+    const updatedTodo = await updateTodos(t_id, req.body);
     return res.json(updatedTodo);
   } catch (e) {
     res.status(400).json(e);

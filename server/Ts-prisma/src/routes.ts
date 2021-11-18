@@ -10,8 +10,8 @@ import { createUserHandler } from "./controller/user";
 export async function routes(app: Express) {
   app.get("/", getTodoHandler);
   app.post("/todo", postTodoHandler);
-  app.delete("/todo", deleteTodoHandler);
-  app.put("/todo", updateTodoHandler);
+  app.delete("/todo/:id", deleteTodoHandler);
+  app.put("/todo/:id", updateTodoHandler);
   //   app.put("/", updateTodo);
 
   // login
