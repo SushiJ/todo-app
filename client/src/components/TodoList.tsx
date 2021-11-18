@@ -1,7 +1,6 @@
 import { IconButton } from "@chakra-ui/button";
 import {
   Badge,
-  Divider,
   HStack,
   Spacer,
   StackDivider,

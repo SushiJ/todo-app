@@ -1,7 +1,6 @@
 import { VStack } from "@chakra-ui/layout";
 import React from "react";
 import AddTodo from "./components/AddTodo";
-import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import TodoList from "./components/TodoList";
 import { useState, useEffect } from "react";

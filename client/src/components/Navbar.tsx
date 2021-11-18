@@ -1,5 +1,5 @@
 import { IconButton } from "@chakra-ui/button";
-import { Heading, HStack, Spacer, VStack } from "@chakra-ui/layout";
+import { Heading, HStack, Spacer } from "@chakra-ui/layout";
 
 import { FaSun, FaMoon } from "react-icons/fa";
 
