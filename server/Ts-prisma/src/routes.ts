@@ -5,7 +5,7 @@ import {
   postTodoHandler,
   updateTodoHandler,
 } from "./controller/todo";
-import { createUserHandler } from "./controller/user";
+import { createUserHandler, updateUserHandler } from "./controller/user";
 
 export async function routes(app: Express) {
   app.get("/", getTodoHandler);
@@ -16,4 +16,5 @@ export async function routes(app: Express) {
 
   // login
   app.post("/api/login", createUserHandler);
+  app.post("/api/edit", updateUserHandler);
 }

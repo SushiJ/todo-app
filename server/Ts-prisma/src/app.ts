@@ -14,6 +14,6 @@ app.get("/check", (req, res) => {
 
 const PORT = process.env.PORT;
 app.listen(PORT || 4000, async () => {
-  routes(app);
+  await routes(app);
   logger.info(`server started at http://localhost:${PORT}`);
 });
